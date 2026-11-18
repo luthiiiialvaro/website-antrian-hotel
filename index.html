@@ -41,7 +41,7 @@
       h1,h2,h3,.serif{ font-family:"Playfair Display", Georgia, serif; }
       img{ max-width:100%; display:block; }
       button, [role="button"], select, summary, input:not([type="checkbox"],[type="radio"]), a.btn{ min-height:2.5rem; }
-      button{ font-family:inherit; cursor:pointer; }
+      button{ font-family:inherit; color:inherit; cursor:pointer; }
       :focus-visible{ outline:3px solid var(--gold2); outline-offset:2px; }
 
       /* ---------- Header ---------- */
@@ -97,16 +97,23 @@
         display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
         border:1px solid transparent; border-radius:11px; padding:.65rem 1.15rem;
         font-weight:700; font-size:.95rem; text-decoration:none; transition:transform .06s ease, background .15s ease;
+        color:var(--ink);
       }
       .btn:active{ transform:scale(.97); }
-      .btn-brand{ background:var(--brand); color:#fff; }
-      .btn-brand:hover{ background:var(--brand2); }
-      .btn-gold{ background:var(--gold); color:#fff; }
-      .btn-gold:hover{ background:var(--gold2); }
+      /* Warna tombol sengaja tetap (tidak ikut membalik di mode gelap) agar
+         teksnya selalu kontras dengan latar tombol di kedua mode. */
+      .btn-brand{ background:#14532d; color:#fff; }
+      .btn-brand:hover{ background:#1c6b3c; color:#fff; }
+      .btn-gold{ background:#b8862f; color:#fff; }
+      .btn-gold:hover{ background:#96690f; color:#fff; }
       .btn-ghost{ background:var(--surface); border-color:var(--line); color:var(--ink); }
-      .btn-ghost:hover{ background:var(--surface2); }
-      .btn-wa{ background:var(--wa); color:#fff; }
-      .btn-danger{ background:var(--danger); color:#fff; }
+      .btn-ghost:hover{ background:var(--surface2); color:var(--ink); }
+      .btn-hero{ background:rgba(255,255,255,.94); border-color:rgba(255,255,255,.65); color:#22302a; }
+      .btn-hero:hover{ background:#ffffff; color:#22302a; }
+      .btn-wa{ background:#177a3f; color:#fff; }
+      .btn-wa:hover{ background:#126331; color:#fff; }
+      .btn-danger{ background:#b3352b; color:#fff; }
+      .btn-danger:hover{ background:#93291f; color:#fff; }
       .btn-sm{ padding:.45rem .8rem; font-size:.86rem; min-height:2.25rem; }
       .btn[disabled]{ opacity:.5; cursor:not-allowed; }
 
@@ -248,8 +255,8 @@
         width:56px; height:56px; border-radius:50%; border:none; color:#fff;
         display:grid; place-items:center; box-shadow:0 8px 22px rgba(0,0,0,.25); text-decoration:none;
       }
-      .fab.wa{ background:var(--wa); }
-      .fab.ai{ background:var(--gold); }
+      .fab.wa{ background:#177a3f; }
+      .fab.ai{ background:#b8862f; }
       .chat-panel{
         position:fixed; right:1rem; bottom:5.4rem; z-index:90; width:min(380px, calc(100vw - 2rem));
         height:min(540px, calc(100dvh - 7rem)); background:var(--surface); border:1px solid var(--line);
@@ -265,7 +272,7 @@
       .msg.user{ background:var(--brand); color:#fff; align-self:flex-end; border-bottom-right-radius:4px; }
       .chips{ display:flex; flex-wrap:wrap; gap:.4rem; padding:.55rem .9rem 0; background:var(--bg); }
       .chip{
-        border:1px solid var(--line); background:var(--surface); border-radius:999px;
+        border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:999px;
         padding:.35rem .7rem; font-size:.8rem; font-weight:600; min-height:2.25rem;
       }
       .chat-form{ display:flex; gap:.5rem; padding:.7rem; border-top:1px solid var(--line); background:var(--surface); }
@@ -356,8 +363,8 @@
         <p class="lead">Selamat datang di Hotel Nusantara Grand. Ambil nomor antrian check-in dari ponsel, pantau panggilan secara langsung, pesan kamar, bayar, dan unduh invoice — semua dari satu halaman.</p>
         <div class="cta-row">
           <a class="btn btn-gold" href="#antrian">Ambil Nomor Antrian</a>
-          <a class="btn btn-ghost" href="#booking" style="background:rgba(255,255,255,.92)">Booking Kamar</a>
-          <button class="btn btn-ghost" type="button" id="heroVoiceBtn" style="background:rgba(255,255,255,.92)">
+          <a class="btn btn-hero" href="#booking">Booking Kamar</a>
+          <button class="btn btn-hero" type="button" id="heroVoiceBtn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
             Dengar Panggilan Suara
           </button>
